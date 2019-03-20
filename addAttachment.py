@@ -18,10 +18,10 @@ file = "FILEPATH\Test.PNG"
 pngfile = {'file': open(file, 'rb')}
 
 headers2 = {'X-Atlassian-Token': 'no-check'}
-print "Upload image ..."
-
+print "Upload image ..." 
+s = request.Session() 
 try:
-    js_res = requests.post(attachmentURL, auth=(username, password), files=pngfile, headers=headers2, verify=False)
+    js_res = s.post(attachmentURL, auth=(username, password), files=pngfile, headers=headers2, verify=False)
     print js_res.status_code
 except HTTPError, error:
     print error
