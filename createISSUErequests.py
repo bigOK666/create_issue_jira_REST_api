@@ -12,7 +12,7 @@ issueTypeName = "Test"
 
 projectURL = 'JIRA_SERVER/jira'
 createIssueURL = projectURL + "/rest/api/2/issue/"
-
+s = requests.Session()
 headers = {"Content-Type": "application/json"}
 print "Creating Issue ..."
 
@@ -40,7 +40,7 @@ values = dumps({
 
 
 try:
-    r = requests.post(createIssueURL, data=values, headers=headers, auth=HTTPBasicAuth(username,password), verify=False)
+    r = s.post(createIssueURL, data=values, headers=headers, auth=HTTPBasicAuth(username,password), verify=False)
     print r.status_code
     contentObject = r.json()
     print contentObject['key']
