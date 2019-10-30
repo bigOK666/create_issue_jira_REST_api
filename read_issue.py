@@ -30,5 +30,5 @@ for cell in ws['C']:
 
 
 #end the session
-
+wb.save("twolabels2.xlsx")
 #search the issue-key from link in Excel and write the issue-key and summary which contains KEY-WORD in the same row
